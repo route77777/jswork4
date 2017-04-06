@@ -1,0 +1,105 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin:0;
+	}
+	body{
+		margin-top: 5px;
+			margin-left: 5px;
+	}
+		  input[type=button]{
+		  	border-radius: 5px;
+		  	margin-left: 5px;
+		  	padding: 0px 8px;
+		  	background: white;
+		  	border: 1px solid #ccc;
+		  }
+		  li{
+		  	float: left;
+		  	background: rgb(52,118,176);
+		  	color: white;
+		  	padding: 10px 10px;
+		  	margin-right: 5px;
+		  	margin-top: 5px;
+		  	list-style: none;
+		  }
+	</style>
+</head>
+<body> 
+   <input type="text" name="" id='text'>
+   <input type="button" name="" value="左侧入" onclick="zuoce_Ru()">
+   <input type="button" name="" value="左侧出" onclick="zuoce_Chu()">
+   <input type="button" name="" value="右侧入" onclick="youce_Ru()">
+   <input type="button" name="" value="右侧出" onclick="youce_Chu()">
+   <ul id='list'></li></ul>
+   <script type="text/javascript">
+   	 var list=document.getElementById('list');
+   	 var text=document.getElementById('text');
+   	   var wenzi=text.value;
+   	   function zuoce_Ru()
+   	   {
+ 	      var lis=document.createElement('li');
+ 	      if(!isNaN(text.value))
+   	      { var yiyou=list.childNodes[0];
+   	        lis.innerHTML=text.value;
+   	        list.insertBefore(lis,yiyou)
+   	   
+   	  } 
+   	      else{
+   	  	    alert("输入非法嘞~(≧▽≦)/~")
+   	  }
+   	   }
+   	      function zuoce_Chu() 
+   	      {
+ 	      if(!isNaN(text.value))
+            { 
+               
+               var lis=document.createElement('p');
+               var firstChild=list.firstChild;
+              lis.innerHTML=firstChild.innerHTML;
+              alert(lis.innerHTML);
+              list.removeChild(firstChild)
+         
+        } 
+            else{
+             alert("输入非法嘞~(≧▽≦)/~")
+        }
+   	   }
+   	      function youce_Ru()
+               {
+ 	      var lis=document.createElement('li');
+ 	      if(!isNaN(text.value))
+   	      { var yiyou=list.childNodes.lastChild;
+   	        lis.innerHTML=text.value;
+   	        list.appendChild(lis,yiyou)
+   	   
+   	  } 
+   	      else{
+   	  	    alert("输入非法嘞~(≧▽≦)/~")
+   	  }
+   	   }
+
+   	      function youce_Chu(){ 
+ 	      if(!isNaN(text.value))
+   	      { 
+               
+   	      	var lis=document.createElement('p');
+               var lastChild=list.lastChild;
+   	        lis.innerHTML=lastChild.innerHTML;
+   	        alert(lis.innerHTML);
+              list.removeChild(lastChild)
+   	   
+   	  } 
+   	      else{
+   	  	    alert("输入非法嘞~(≧▽≦)/~")
+   	  }
+   	   }
+
+   	  
+   </script>
+</body> 
+</html>
